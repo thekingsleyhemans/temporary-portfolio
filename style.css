@@ -621,6 +621,10 @@ footer h1{
     }
 }
 @media (max-width: 500px) {
+    .hero-wrap h1 {
+        font-size: 3rem;
+        max-width: 15ch;
+    }
     
     .footer-wrap a {
         font-size: clamp(1rem, 4.5vw, 1.5rem);
