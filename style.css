@@ -136,6 +136,7 @@ section{
     color: #7F011F;
     max-width: 17ch;
     text-align: center;
+    font-weight: 500;
 }
 .hero-wrap p{
     font-family: var(--font-sans);

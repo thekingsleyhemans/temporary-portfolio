@@ -1,0 +1,24 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "marquee-engine.js",
+  "scripts": {
+    "convert-videos": "node convert-videos.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thekingsleyhemans/temporary-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/thekingsleyhemans/temporary-portfolio/issues"
+  },
+  "homepage": "https://github.com/thekingsleyhemans/temporary-portfolio#readme",
+  "devDependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0"
+  }
+}
