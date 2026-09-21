@@ -443,7 +443,7 @@ footer h1{
 }
 .footer-wrap a{
     font-family: var(--font-sans);
-    font-size: clamp(1.2rem, 0.9rem + 1vw, 2rem);
+    font-size: clamp(1rem, 0.65rem + 2.2vw, 2rem);
     background-color: #131313;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
@@ -603,7 +603,7 @@ footer h1{
     }
 
     .footer-wrap a {
-        font-size: 2rem;
+        font-size: clamp(1rem, 4.5vw, 1.75rem);
         max-width: 100%;
         overflow-wrap: anywhere;
         text-align: center;
@@ -619,4 +619,20 @@ footer h1{
         overflow-wrap: anywhere;
         text-align: center;
     }
+}
+@media (max-width: 500px) {
+    
+    .footer-wrap a {
+        font-size: clamp(1rem, 4.5vw, 1.5rem);
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+    .footer-wrap h1{
+        font-size: 2.2rem;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+    
 }
