@@ -1,0 +1,74 @@
+[
+  {
+    "id": "project-one",
+    "projectTitle": "Benokes Portfolio",
+    "projectYear": "2025",
+    "role": "Webflow & UI/UX Design",
+    "link": "https://www.benokes.com/",
+    "heroVideo": {
+      "type": "video",
+      "src": "benokes/Loader.mp4",
+      "poster": "benokes/Landing.jpg"
+    },
+    "projectGallery": [
+      {
+        "type": "video",
+        "src": "benokes/0921.mp4",
+        "poster": "benokes/Landing.jpg"
+      },
+      "benokes/menu open.jpg",
+      {
+        "type": "video",
+        "src": "benokes/0921(1).mp4",
+        "poster": "benokes/Landing.jpg"
+      },
+      "benokes/GH.jpg",
+      "benokes/fw.jpg",
+      "benokes/hs.jpg",
+      "benokes/info.jpg",
+      "benokes/testi.jpg"
+    ]
+  },
+  {
+    "id": "project-two",
+    "projectTitle": "LimeAR",
+    "projectYear": "2026",
+    "role": "Webflow & UI/UX Design",
+    "link": "https://www.limear.co/",
+    "heroImage": "port.jpeg",
+    "projectGallery": [
+      "port.jpeg",
+      "work.jpeg",
+      "infoimg.jpg",
+      "port.jpeg"
+    ]
+  },
+  {
+    "id": "project-three",
+    "projectTitle": "Joy Peterson",
+    "projectYear": "2025",
+    "role": "WordPress & UI/UX Design",
+    "link": "https://joypeterson.com/",
+    "heroImage": "infoimg.jpg",
+    "projectGallery": [
+      "infoimg.jpg",
+      "work.jpeg",
+      "port.jpeg",
+      "infoimg.jpg"
+    ]
+  },
+  {
+    "id": "project-four",
+    "projectTitle": "SlimPathPDA",
+    "projectYear": "2025",
+    "role": "WordPress & UI/UX Design",
+    "link": "https://slimpathpda.com/",
+    "heroImage": "work.jpeg",
+    "projectGallery": [
+      "work.jpeg",
+      "infoimg.jpg",
+      "port.jpeg",
+      "work.jpeg"
+    ]
+  }
+]

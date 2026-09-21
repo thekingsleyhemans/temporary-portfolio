@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Details</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.ico?v=2" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-wrap">
+          <div>
+            <a href="index.html" class="logo">KINGSLEY HEMANS - TEMPORARY PORTFOLIO</a>
+          </div>
+          <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#works">Portfolio</a>
+          </div>
+          <div class="cta">
+            <a href="index.html" class="btn">Back Home</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="project-detail">
+        <div class="container">
+          <article id="project-detail" class="project-detail-card"></article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-wrap">
+          <p data-split="words" data-trigger="scroll" data-stagger="0.03" data-duration="0.8">Think I’d be a good fit for your team or project? Let’s connect.</p>
+          <a href="mailto:kingsleyhemans@gmail.com" class="btn" data-split="words" data-trigger="scroll" data-stagger="0.04" data-duration="0.8">kingsleyhemans@gmail.com</a>
+          <h1 data-split="words" data-trigger="view" data-stagger="0.04" data-duration="0.9">© 2026 Kingsley Hemans</h1>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+    <script type="module">
+      import { initSplitEngine } from './split-engine.js';
+      gsap.registerPlugin(ScrollTrigger);
+
+      const lenis = new Lenis({
+        autoRaf: false,
+      });
+
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+
+      const projectDetail = document.getElementById('project-detail');
+      const params = new URLSearchParams(window.location.search);
+      const projectId = params.get('id') || 'project-one';
+
+      const loadProject = async () => {
+        try {
+          const response = await fetch('./projects.json');
+          const projects = await response.json();
+          const project = projects.find((item) => item.id === projectId) || projects[0];
+
+          if (!project) {
+            projectDetail.innerHTML = '<p>Project not found.</p>';
+            return;
+          }
+
+          const currentIndex = projects.findIndex((item) => item.id === project.id);
+          const nextProject = projects[(currentIndex + 1) % projects.length];
+
+          projectDetail.innerHTML = `
+            <div class="project-detail-header">
+              <p class="eyebrow" data-split="words" data-trigger="view" data-stagger="0.04" data-duration="0.8">${project.projectYear}</p>
+              <h1 data-split="words" data-trigger="view" data-stagger="0.05" data-duration="0.9">${project.projectTitle}</h1>
+            </div>
+
+            <div class="project-detail-meta">
+              <div>
+                <span class="meta-label" data-split="words" data-trigger="view" data-stagger="0.04" data-duration="0.8">Role</span>
+                <p data-split="words" data-trigger="view" data-stagger="0.03" data-duration="0.9">${project.role}</p>
+              </div>
+              <div>
+                <span class="meta-label" data-split="words" data-trigger="view" data-stagger="0.04" data-duration="0.8">Link</span>
+                <a href="${project.link}" target="_blank" rel="noreferrer" data-split="words" data-trigger="view" data-stagger="0.04" data-duration="0.8">View project</a>
+              </div>
+            </div>
+
+            <div class="project-gallery">
+              ${project.projectGallery
+                .map((item) => {
+                  if (typeof item === 'string') {
+                    return `
+                      <figure class="project-gallery-item">
+                        <img src="${item}" alt="${project.projectTitle} gallery image" />
+                      </figure>
+                    `;
+                  }
+
+                  if (item.type === 'video') {
+                    return `
+                      <figure class="project-gallery-item">
+                        <video autoplay controls playsinline muted loop poster="${item.poster || ''}">
+                          <source src="${item.src}" type="video/mp4" />
+                        </video>
+                      </figure>
+                    `;
+                  }
+
+                  return '';
+                })
+                .join('')}
+            </div>
+
+            <div class="next-project-link-wrap">
+              <a href="project.html?id=${nextProject.id}" class="next-project-link">
+                Next project — ${nextProject.projectTitle}
+              </a>
+            </div>
+          `;
+
+          initSplitEngine();
+        } catch (error) {
+          console.error('Project load failed:', error);
+          projectDetail.innerHTML = '<p>Unable to load project details.</p>';
+        }
+      };
+
+      loadProject();
+    </script>
+  </body>
+</html>
