@@ -31,10 +31,10 @@
   },
   {
     "id": "project-two",
-    "projectTitle": "LimeAR",
+    "projectTitle": "Oddsense",
     "projectYear": "2026",
-    "role": "Webflow & UI/UX Design",
-    "link": "https://www.limear.co/",
+    "role": "WordPress & Bricks Builder",
+    "link": "https://oddsense.net/",
     "heroImage": "port.jpeg",
     "projectGallery": [
       "port.jpeg",
@@ -45,10 +45,10 @@
   },
   {
     "id": "project-three",
-    "projectTitle": "Joy Peterson",
+    "projectTitle": "LimeAR",
     "projectYear": "2025",
-    "role": "WordPress & UI/UX Design",
-    "link": "https://joypeterson.com/",
+    "role": "Webflow & UI/UX Design",
+    "link": "https://www.limear.co/",
     "heroImage": "infoimg.jpg",
     "projectGallery": [
       "infoimg.jpg",
@@ -59,10 +59,10 @@
   },
   {
     "id": "project-four",
-    "projectTitle": "SlimPathPDA",
+    "projectTitle": "Joy Peterson",
     "projectYear": "2025",
     "role": "WordPress & UI/UX Design",
-    "link": "https://slimpathpda.com/",
+    "link": "https://joypeterson.com/",
     "heroImage": "work.jpeg",
     "projectGallery": [
       "work.jpeg",
