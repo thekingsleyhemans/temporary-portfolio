@@ -370,7 +370,7 @@ section{
 .col p{
     font-family: var(--font-sans);
     font-size: clamp(1rem, 0.9rem + 0.5vw, 1.35rem);
-    color: #f5f5f5;
+    color: #9b9b9b;
 }
 .col h3{
     font-family: var(--font-sans);
