@@ -162,7 +162,7 @@ section{
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 10rem;
+    padding-top: 5rem;
 }
 .works h2{
     font-size: clamp(2.5rem, 1.4rem + 3vw, 5rem);
