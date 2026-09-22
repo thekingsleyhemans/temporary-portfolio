@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading project...</title>
+  </head>
+  <body>
+    <script>
+      const pathParts = window.location.pathname.split('/').filter(Boolean);
+      const slug = pathParts.pop();
+      const siteRoot = pathParts.length ? `/${pathParts.join('/')}/` : '/';
+      const projectUrl = new URL(`${siteRoot}project.html`, window.location.origin);
+      projectUrl.searchParams.set('slug', slug);
+      window.location.replace(projectUrl.href);
+    </script>
+  </body>
+</html>

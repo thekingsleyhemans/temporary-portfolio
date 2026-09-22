@@ -12,14 +12,14 @@
       <nav>
         <div class="nav-wrap">
           <div>
-            <a href="index.html" class="logo">KINGSLEY HEMANS - TEMPORARY PORTFOLIO</a>
+            <a href="./" class="logo">KINGSLEY HEMANS - TEMPORARY PORTFOLIO</a>
           </div>
           <div class="nav-links">
-            <a href="index.html#about">About</a>
-            <a href="index.html#works">Portfolio</a>
+            <a href="./#about">About</a>
+            <a href="./#works">Portfolio</a>
           </div>
           <div class="cta">
-            <a href="index.html" class="btn">Back Home</a>
+            <a href="./" class="btn">Back Home</a>
           </div>
         </div>
       </nav>
@@ -62,17 +62,26 @@
 
       const projectDetail = document.getElementById('project-detail');
       const params = new URLSearchParams(window.location.search);
-      const projectId = params.get('id') || 'project-one';
+      const pathSlug = window.location.pathname.split('/').filter(Boolean).pop();
+      const requestedSlug = params.get('slug');
+      const legacyProjectId = params.get('id');
 
       const loadProject = async () => {
         try {
           const response = await fetch('./projects.json');
           const projects = await response.json();
-          const project = projects.find((item) => item.id === projectId) || projects[0];
+          const project = projects.find((item) => item.slug === (requestedSlug || pathSlug))
+            || projects.find((item) => item.id === legacyProjectId)
+            || projects[0];
 
           if (!project) {
             projectDetail.innerHTML = '<p>Project not found.</p>';
             return;
+          }
+
+          document.title = `${project.projectTitle} - KINGSLEY HEMANS`;
+          if (window.location.pathname.endsWith('/project.html') || legacyProjectId) {
+            window.history.replaceState({}, document.title, `./${project.slug}`);
           }
 
           const currentIndex = projects.findIndex((item) => item.id === project.id);
@@ -122,7 +131,7 @@
             </div>
 
             <div class="next-project-link-wrap">
-              <a href="project.html?id=${nextProject.id}" class="next-project-link">
+              <a href="./${nextProject.slug}" class="next-project-link">
                 Next project — ${nextProject.projectTitle}
               </a>
             </div>

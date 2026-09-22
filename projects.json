@@ -1,6 +1,7 @@
 [
   {
     "id": "project-one",
+    "slug": "benokes-portfolio",
     "projectTitle": "Benokes Portfolio",
     "projectYear": "2025",
     "role": "Webflow & UI/UX Design",
@@ -31,6 +32,7 @@
   },
   {
     "id": "project-two",
+    "slug": "oddsense",
     "projectTitle": "Oddsense",
     "projectYear": "2026",
     "role": "WordPress & Bricks Builder",
@@ -45,6 +47,7 @@
   },
   {
     "id": "project-three",
+    "slug": "limear",
     "projectTitle": "LimeAR",
     "projectYear": "2025",
     "role": "Webflow & UI/UX Design",
@@ -59,6 +62,7 @@
   },
   {
     "id": "project-four",
+    "slug": "joy-peterson",
     "projectTitle": "Joy Peterson",
     "projectYear": "2025",
     "role": "WordPress & UI/UX Design",

@@ -127,6 +127,11 @@
       import { initSplitEngine } from "./split-engine.js";
       gsap.registerPlugin(ScrollTrigger);
 
+      if (window.location.pathname.endsWith('/index.html')) {
+        const cleanPath = window.location.pathname.slice(0, -'index.html'.length) || '/';
+        window.history.replaceState({}, document.title, `${cleanPath}${window.location.hash}`);
+      }
+
       const lenis = new Lenis({
         autoRaf: false,
       });
@@ -215,9 +220,9 @@
             .join('');
 
           worksGrid.querySelectorAll('.work-item').forEach((card) => {
-            const projectId = card.dataset.projectId;
+            const project = projects.find((item) => item.id === card.dataset.projectId);
             const openProject = () => {
-              window.location.href = `project.html?id=${projectId}`;
+              window.location.href = `./${project.slug}`;
             };
 
             card.addEventListener('click', openProject);
