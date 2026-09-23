@@ -499,6 +499,10 @@ footer h1{
 }
 
 @media (max-width: 600px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
     header {
         padding-top: 1rem;
     }
