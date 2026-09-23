@@ -146,7 +146,8 @@ section{
     text-align: center;
 }
 .hero-img{
-    width: 100%;
+    width: min(100%, 30rem);
+    margin-inline: auto;
     display: flex;
     justify-content: center;
     padding-top: 5rem;
@@ -154,6 +155,8 @@ section{
     z-index: 2;
 }
 .hero-img img{
+    width: 100%;
+    height: auto;
     border-radius: 2rem;
     display: block;
     will-change: transform;
@@ -475,7 +478,6 @@ footer h1{
         padding-top: 7rem;
     }
 
-    .hero-img img,
     .info-img img {
         width: 100%;
         height: auto;
