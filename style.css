@@ -49,6 +49,10 @@ h6 {
     padding: 0;
     box-sizing: border-box;
 }
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
 a{
     text-decoration: none;
     color: #7F011F;
@@ -189,8 +193,7 @@ section{
 }
 
 .work-item:focus {
-    outline: 2px solid #7F011F;
-    outline-offset: 4px;
+    outline: none;
 }
 
 .work-media {
@@ -209,6 +212,8 @@ section{
     background: #131313;
     transition: transform 700ms cubic-bezier(0.2, 0.65, 0.25, 1);
     will-change: transform;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .work-item:hover .work-media img,
