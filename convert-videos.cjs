@@ -3,15 +3,13 @@ const path = require('path');
 const { spawn } = require('child_process');
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 
-const mediaDirectory = path.join(__dirname, 'benokes');
-const videoFiles = fs
-  .readdirSync(mediaDirectory)
-  .filter((file) => file.toLowerCase().endsWith('.mp4'));
+const rootDirectory = __dirname;
+const mediaDirectories = fs
+  .readdirSync(rootDirectory, { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && !['.git', 'node_modules'].includes(entry.name))
+  .map((entry) => entry.name);
 
-const convertVideo = (inputFile) => {
-  const inputPath = path.join(mediaDirectory, inputFile);
-  const outputPath = path.join(mediaDirectory, `${path.basename(inputFile, '.mp4')}.webm`);
-
+const convertVideo = (inputPath, outputPath) => {
   return new Promise((resolve, reject) => {
     const process = spawn(ffmpegPath, [
       '-y',
@@ -24,24 +22,35 @@ const convertVideo = (inputFile) => {
       outputPath,
     ]);
 
+    let stderrOutput = '';
     process.stderr.on('data', (chunk) => {
-      process.stderrOutput = `${process.stderrOutput || ''}${chunk}`;
+      stderrOutput += chunk.toString();
     });
 
     process.on('close', (exitCode) => {
       if (exitCode === 0) {
-        console.log(`${inputFile} -> ${path.basename(outputPath)}`);
+        console.log(`${path.relative(rootDirectory, inputPath)} -> ${path.relative(rootDirectory, outputPath)}`);
         resolve();
         return;
       }
 
-      reject(new Error(`FFmpeg failed for ${inputFile}:\n${process.stderrOutput || ''}`));
+      reject(new Error(`FFmpeg failed for ${path.relative(rootDirectory, inputPath)}:\n${stderrOutput || ''}`));
     });
   });
 };
 
 (async () => {
-  for (const videoFile of videoFiles) {
-    await convertVideo(videoFile);
+  for (const directoryName of mediaDirectories) {
+    const mediaDirectory = path.join(rootDirectory, directoryName);
+    const videoFiles = fs
+      .readdirSync(mediaDirectory)
+      .filter((file) => file.toLowerCase().endsWith('.mp4'));
+
+    for (const videoFile of videoFiles) {
+      const inputPath = path.join(mediaDirectory, videoFile);
+      const outputPath = path.join(mediaDirectory, `${path.basename(videoFile, '.mp4')}.webm`);
+
+      await convertVideo(inputPath, outputPath);
+    }
   }
 })();
