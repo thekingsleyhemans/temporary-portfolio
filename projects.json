@@ -37,12 +37,12 @@
     "projectYear": "2026",
     "role": "WordPress & Bricks Builder",
     "link": "https://oddsense.net/",
-    "heroImage": "Oddsense/Oddsense-Land.jpg",
+    "heroImage": "oddsense/Oddsense-Land.jpg",
     "projectGallery": [
-      "Oddsense/Oddsense-Land.jpg",
-      "Oddsense/Oddsense-Mid.jpg",
-      "Oddsense/Oddsense-BGF.jpg",
-      "Oddsense/Oddsense-Footer.jpg"
+      "oddsense/Oddsense-Land.jpg",
+      "oddsense/Oddsense-Mid.jpg",
+      "oddsense/Oddsense-BGF.jpg",
+      "oddsense/Oddsense-Footer.jpg"
     ]
   },
   {
@@ -52,12 +52,16 @@
     "projectYear": "2025",
     "role": "Webflow & UI/UX Design",
     "link": "https://www.limear.co/",
-    "heroImage": "infoimg.jpg",
+    "heroImage": "limear/LimeAR.webm",
     "projectGallery": [
-      "infoimg.jpg",
-      "work.jpeg",
-      "port.jpeg",
-      "infoimg.jpg"
+      {
+        "type": "video",
+        "src": "limear/LimeAR.webm",
+        "poster": "limear/LIMEAR1.jpg"
+      },
+      "limear/LIMEAR1.jpg",
+      "limear/LIMEAR2.jpg",
+      "limear/LIMEAR3.jpg"
     ]
   },
   {
@@ -67,12 +71,21 @@
     "projectYear": "2025",
     "role": "WordPress & UI/UX Design",
     "link": "https://joypeterson.com/",
-    "heroImage": "work.jpeg",
+    "heroImage": "joypeterson/JPHOME.webm",
     "projectGallery": [
-      "work.jpeg",
-      "infoimg.jpg",
-      "port.jpeg",
-      "work.jpeg"
+      {
+        "type": "video",
+        "src": "joypeterson/JPHOME.webm",
+        "poster": "joypeterson/JPhome.jpg"
+      },
+      {
+        "type": "video",
+        "src": "joypeterson/JPHOME(1).webm",
+        "poster": "joypeterson/JPhome.jpg"
+      },
+      "joypeterson/JPhome.jpg",
+      "joypeterson/JPlinks.jpg",
+      "joypeterson/JPteam.jpg"
     ]
   }
 ]
