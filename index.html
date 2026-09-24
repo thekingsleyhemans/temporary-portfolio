@@ -163,15 +163,18 @@
           return project.heroVideo;
         }
 
+        const firstItem = project.projectGallery?.[0];
+
         if (project.heroImage) {
+          const isVideoAsset = /\.(mp4|webm|ogg|mov)(?:$|\?)/i.test(project.heroImage);
+          const poster = typeof firstItem === 'object' && firstItem.poster ? firstItem.poster : project.heroImage;
+
           return {
-            type: 'image',
+            type: isVideoAsset ? 'video' : 'image',
             src: project.heroImage,
-            poster: project.heroImage,
+            poster,
           };
         }
-
-        const firstItem = project.projectGallery?.[0];
 
         if (!firstItem) {
           return null;

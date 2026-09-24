@@ -52,7 +52,11 @@
     "projectYear": "2025",
     "role": "Webflow & UI/UX Design",
     "link": "https://www.limear.co/",
-    "heroImage": "limear/LimeAR.webm",
+    "heroVideo": {
+      "type": "video",
+      "src": "limear/LimeAR.webm",
+      "poster": "limear/LIMEAR1.jpg"
+    },
     "projectGallery": [
       {
         "type": "video",
@@ -71,7 +75,11 @@
     "projectYear": "2025",
     "role": "WordPress & UI/UX Design",
     "link": "https://joypeterson.com/",
-    "heroImage": "joypeterson/JPHOME.webm",
+    "heroVideo": {
+      "type": "video",
+      "src": "joypeterson/JPHOME.webm",
+      "poster": "joypeterson/JPhome.jpg"
+    },
     "projectGallery": [
       {
         "type": "video",
